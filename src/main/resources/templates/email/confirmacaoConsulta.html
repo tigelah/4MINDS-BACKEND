@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title th:remove="all">Order Confirmation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <div>
+      <h1>Número da consulta: <span th:text="${consulta.id}"> </span></h1>
+      <p>
+        Data hora:
+        <span
+          th:text="${#dates.format(consulta.dataConsulta, 'dd/MM/yyyy hh:mm')}"
+        ></span>
+      </p>
+      <p>Paciente: <span th:text="${consulta.paciente.nome}"></span></p>
+      <p>
+        Situação do pagamento:
+        <span th:text="${consulta.pagamento.estado.descricao}"></span>
+      </p>
+      <h3>Detalhes da consulta:</h3>
+      <table border="1">
+        <tr>
+          <th>Pscicologos</th>
+<!--           <th>Tipo Consulta</th> -->
+          <th>Quantidade de consultas</th>
+          <th>Preço unitário</th>
+          <th>Subtotal</th>
+        </tr>
+        <tr th:each="item : ${consulta.itens}">
+          <td th:text="${item.psicologo.nome}">nome</td>
+<!--           <td th:text="${item.psicologo.tipoConsulta}">Tipo Consulta</td> -->  
+          <td th:text="${item.quantidade}">quantidade</td>
+          <td
+            th:text="${#numbers.formatDecimal(item.preco, 0, 'POINT', 2,'COMMA')}"
+          >
+            preco
+          </td>
+          <td
+            th:text="${#numbers.formatDecimal(item.subTotal, 0, 'POINT', 2,'COMMA')}"
+          >
+            subTotal
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        Valor total:
+        <span
+          th:text="${#numbers.formatDecimal(consulta.valorTotal, 0,'POINT', 2, 'COMMA')}"
+        ></span>
+      </p>
+    </div>
+  </body>
+</html>
