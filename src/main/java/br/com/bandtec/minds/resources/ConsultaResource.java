@@ -58,10 +58,10 @@ public class ConsultaResource {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<ConsultaDTO>> findAll() {
+	public ResponseEntity<List<Consulta>> findAll() {
 		List<Consulta> list = service.findAll();
-		List<ConsultaDTO> listDto = list.stream().map(obj -> new ConsultaDTO(obj)).collect(Collectors.toList());  
-		return ResponseEntity.ok().body(listDto);
+//		List<ConsultaDTO> listDto = list.stream().map(obj -> new ConsultaDTO(obj)).collect(Collectors.toList());  
+		return ResponseEntity.ok().body(list);
 	}
 	
 	@RequestMapping(value="/page", method=RequestMethod.GET)
