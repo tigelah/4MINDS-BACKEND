@@ -19,11 +19,11 @@ public class TestConfig {
 	@Autowired
 	private DBService dbService;
 
-	@Bean
-	public boolean instantiateDatabase() throws ParseException {
-		dbService.instantiateTestDatabase();
-		return true;
-	}
+//	@Bean
+//	public boolean instantiateDatabase() throws ParseException {
+//		dbService.instantiateTestDatabase();
+//		return true;
+//	}
 
 //	@Bean
 //	public EmailService emailService() {
