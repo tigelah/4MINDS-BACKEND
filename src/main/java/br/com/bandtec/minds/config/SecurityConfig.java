@@ -1,3 +1,4 @@
+
 package br.com.bandtec.minds.config;
 
 import java.util.Arrays;
@@ -41,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	// libera o acesso ao banco H2
 	private static final String[] PUBLIC_MATCHERS = {
-			"/h2-consolee/**"
+			"/h2-consolee/**",
 	};
 
 	// libera o acesso a esses endpoints apenas como get
@@ -51,7 +52,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	};
 	private static final String[] PUBLIC_MATCHERS_POST = {
 			"/pacientes/**",
-			"/auth/forgot/**"
+			"/auth/forgot/**",
+			"/consultas/**",
+			"/psicologos/**", 
+
+			
 	};
 
 	@Override

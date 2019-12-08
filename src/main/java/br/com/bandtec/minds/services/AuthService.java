@@ -38,7 +38,7 @@ public class AuthService {
 		psicologoRepository.save(psicologo);
 		emailService.sendNewPasswordEmail(psicologo, newPass);
 	}
-// criando a nova senha de 10 caracteres que pode ser digito ou letra
+// criando a nova senha de 10 caracteres que pode ser numero ou letra
 	private String newPassword() {
 		char[] vet = new char[10];
 		for (int i=0; i<10; i++) {
