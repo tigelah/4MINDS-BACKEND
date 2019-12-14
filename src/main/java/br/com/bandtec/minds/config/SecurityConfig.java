@@ -47,8 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	// libera o acesso a esses endpoints apenas como get
 	private static final String[] PUBLIC_MATCHERS_GET = {
-			"/psicologos/**", 
-			"/consultas/**"
+			"/pacientes/**",
+			"/consultas/**",
 	};
 	private static final String[] PUBLIC_MATCHERS_POST = {
 			"/pacientes/**",
@@ -91,9 +91,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
+		configuration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "OPTIONS"));
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues()); //liberando o aceso com as config basicas
+		source.registerCorsConfiguration("/**", configuration);
 		return source;
+		
 	}
 	
 	@Bean
