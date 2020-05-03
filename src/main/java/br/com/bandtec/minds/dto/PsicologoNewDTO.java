@@ -9,18 +9,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PsicologoNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-
 	private Integer id;
+
+	@JsonProperty
 	private String nome;
+
 	@JsonProperty
 	private String cargo;
+
 	@JsonProperty
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 
+	@JsonProperty
 	private String email;
 
-	@JsonIgnore
+//	@JsonIgnore
 	private String password;
 
 	public PsicologoNewDTO() {

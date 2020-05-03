@@ -39,12 +39,13 @@ public class Psicologo  implements Serializable {
 	private String cargo;
 	@JsonProperty
 	private Double preco;
-	@JsonProperty
+//	@JsonProperty("data_nascimento")
 	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date dataNascimento; 
+	private Date dataNascimento;
 
 	private String email;
-	
+
+
 	@JsonIgnore
 	private String password;
 	
@@ -73,7 +74,7 @@ public class Psicologo  implements Serializable {
 
 
 	public Psicologo(Integer id, String nome, String cargo, Double preco, Date dataNascimento, String email,
-			String password) {
+					 String password) {
 		super();
 		this.id = id;
 		this.nome = nome;

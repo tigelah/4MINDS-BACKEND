@@ -18,7 +18,7 @@ public class PsicologoDTO implements Serializable {
 	private String cargo;
 	@JsonProperty
 	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date dataNascimento; 
+	private Date dataNascimento;
 
 	private String email;
 	
